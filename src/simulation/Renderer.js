@@ -64,16 +64,16 @@ export class Renderer {
                     data[idx + 2] = 0;
                     data[idx + 3] = 255;
                 } else if (sat > 0) {
-                    // Positive (Crest) -> Cyan with gamma boost
-                    const gamma = Math.pow(sat, 0.6); // Boost mid-tones
+                    // Positive (Crest) -> Cyan with aggressive gamma boost
+                    const gamma = Math.pow(sat, 0.35); // Very aggressive boost
                     const v = Math.floor(gamma * 255);
                     data[idx] = 0;
                     data[idx + 1] = v;
                     data[idx + 2] = v;
                     data[idx + 3] = 255;
                 } else {
-                    // Negative (Trough) -> Red with gamma boost
-                    const gamma = Math.pow(-sat, 0.6); // Boost mid-tones
+                    // Negative (Trough) -> Red with aggressive gamma boost
+                    const gamma = Math.pow(-sat, 0.35); // Very aggressive boost
                     const v = Math.floor(gamma * 255);
                     data[idx] = v;
                     data[idx + 1] = 0;
