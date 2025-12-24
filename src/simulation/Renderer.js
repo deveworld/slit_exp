@@ -50,29 +50,31 @@ export class Renderer {
                     val = 0;
                 }
 
-                // Visualization Gain
-                const gain = 8.0;
+                // Visualization Gain - much higher to see weak waves after slits
+                const gain = 25.0;
                 let amplitude = val * gain;
 
                 // Soft clipping to -1...1
                 const sat = Math.tanh(amplitude);
 
-                if (Math.abs(sat) < 0.01) {
+                if (Math.abs(sat) < 0.005) {
                     // Near zero - black background
                     data[idx] = 0;
                     data[idx + 1] = 0;
                     data[idx + 2] = 0;
                     data[idx + 3] = 255;
                 } else if (sat > 0) {
-                    // Positive (Crest) -> Cyan
-                    const v = Math.floor(sat * 255);
+                    // Positive (Crest) -> Cyan with gamma boost
+                    const gamma = Math.pow(sat, 0.6); // Boost mid-tones
+                    const v = Math.floor(gamma * 255);
                     data[idx] = 0;
                     data[idx + 1] = v;
                     data[idx + 2] = v;
                     data[idx + 3] = 255;
                 } else {
-                    // Negative (Trough) -> Red
-                    const v = Math.floor(-sat * 255);
+                    // Negative (Trough) -> Red with gamma boost
+                    const gamma = Math.pow(-sat, 0.6); // Boost mid-tones
+                    const v = Math.floor(gamma * 255);
                     data[idx] = v;
                     data[idx + 1] = 0;
                     data[idx + 2] = 0;
