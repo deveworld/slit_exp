@@ -37,7 +37,7 @@ The project is built with standard modern web technologies:
 
 1.  Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/deveworld/slit_exp.git
     cd slit_exp
     ```
 
