@@ -1,0 +1,86 @@
+:root {
+  --bg-color: #050505;
+  --panel-bg: rgba(20, 20, 30, 0.7);
+  --text-main: #e0e0e0;
+  --accent-primary: #00ff9d;
+  /* Sci-fi Green */
+  --accent-secondary: #00d2ff;
+  /* Sci-fi Blue */
+  --grid-color: #222;
+  --font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background: var(--panel-bg);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.overlay-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.overlay-ui>* {
+  pointer-events: auto;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
