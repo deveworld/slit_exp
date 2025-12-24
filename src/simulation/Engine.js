@@ -16,7 +16,7 @@ export class FDTDGrid {
         // This eliminates numerical anisotropy (same speed in all directions)
         this.c = 1 / Math.SQRT2;
         this.c2 = this.c * this.c; // Pre-compute c²
-        this.damping = 0.9995;
+        this.damping = 0.9999;
         this.time = 0;
 
         // Mur ABC coefficient

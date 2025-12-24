@@ -57,8 +57,8 @@ const IntensityGraph = ({ grid, width, height, screenPos = 85 }) => {
             // Draw intensity bars
             for (let y = 0; y < height; y++) {
                 const gridY = Math.floor((y / height) * grid.height);
-                const normalizedIntensity = accum[gridY] / maxIntensity;
-                const barWidth = normalizedIntensity * width * 0.9;
+                const normalizedIntensity = Math.sqrt(accum[gridY] / maxIntensity);
+                const barWidth = normalizedIntensity * width * 0.95;
 
                 if (barWidth > 0.5) {
                     const r = Math.floor(normalizedIntensity * 100);
