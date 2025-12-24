@@ -51,7 +51,7 @@ export class Renderer {
                 }
 
                 // Visualization Gain
-                const gain = 3.0;
+                const gain = 8.0;
                 let amplitude = val * gain;
 
                 // Soft clipping to -1...1
